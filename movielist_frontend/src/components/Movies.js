@@ -13,9 +13,6 @@ const Movies = ({ movies, addLike, deleteMovie, toggleFavourite, user }) => {
 
     return (
       <div>
-        <button onClick={() => setShowAll(!showAll)}>
-          show {showAll ? 'favourites' : 'all' }
-        </button>
         {moviesToShow.map(movie => 
         <Movie 
           key={movie.title} 
@@ -24,6 +21,9 @@ const Movies = ({ movies, addLike, deleteMovie, toggleFavourite, user }) => {
           deleteMovie={() => deleteMovie(movie.id)}
           toggleFavourite={() => toggleFavourite(movie.id)} />
         )}
+        <button onClick={() => setShowAll(!showAll)}>
+          show {showAll ? 'favourites' : 'all' }
+        </button>
       </div>
     )
   }

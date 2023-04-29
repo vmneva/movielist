@@ -38,7 +38,7 @@ const MovieForm = ( {createMovie } ) => {
               onChange={handleDirectorAdd}
             />
         <br></br>
-        <button type="submit">add</button>
+        <button type="submit">search from IMDb</button>
       </form>  
       </div>
     )
