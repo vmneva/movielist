@@ -11,7 +11,7 @@ const movieSchema = new mongoose.Schema({
       ref: 'User'
     },
     director: String,
-    likes: Number,
+    favourite: Boolean,
 })
 
 movieSchema.set('toJSON', {

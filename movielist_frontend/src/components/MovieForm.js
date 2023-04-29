@@ -16,7 +16,7 @@ const MovieForm = ( {createMovie } ) => {
       createMovie({
         title: title,
         director: director,
-        likes: 0,
+        favourite: Math.random() > 0.5
       })
       setNewMovie('')
       setNewDirector('')

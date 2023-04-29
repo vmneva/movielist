@@ -49,11 +49,13 @@ moviesRouter.delete('/:id', async (request, response) => {
 
 moviesRouter.put('/:id', async (request, response) => {
     const body = request.body
-    const likes = {
-        likes: body.likes
+    const movie = {
+        title: body.title,
+        director: body.director,
+        favourite: body.favourite,
     }
   
-    const updatedMovie = await Movie.findByIdAndUpdate(request.params.id, likes, { new: body.likes }).populate('user', { username: 1, name: 1})
+    const updatedMovie = await Movie.findByIdAndUpdate(request.params.id, movie, { new: true }).populate('user', { username: 1, name: 1})
     response.json(updatedMovie)
 })
 

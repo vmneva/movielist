@@ -3,5 +3,5 @@ PUT http://localhost:3003/api/movies/644cf4bc835d168b6a85faec
 Content-Type: application/json
 
 {
-    "likes": 12
+    "favourite": false
 }

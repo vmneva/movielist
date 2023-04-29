@@ -74,22 +74,22 @@ const App = () => {
         }, 3000)
   )}
 
-  const addLike = id => {
+  const toggleFavourite = id => {
     const movie = movies.find(m => m.id === id)
-    const newLikes = movie.likes + 1
-    const likedMovie = { ...movie, likes: newLikes }
+    const changedMovie = { ...movie, favourite: !movie.favourite }
 
     movieService
-      .update(id, likedMovie)
+      .update(id, changedMovie)
       .then(returnedMovie => {
         setMovies(movies.map(movie => movie.id !== id ? movie : returnedMovie))
       })
-      .then(setInfoMessage(`"${likedMovie.title}" liked!`))    
+      .then(setInfoMessage(`Favourite status of ${changedMovie.title} changed`))    
       .then(setTimeout(() => {
           setInfoMessage(null)
         }, 2000)
       )
   }
+
   const deleteMovie = id => {
     const deletedMovie = movies.find(m => m.id === id)
 
@@ -137,8 +137,8 @@ const App = () => {
         </Togglable>
         <Movies 
           movies = {movies} 
-          addLike = {addLike}
           deleteMovie = {deleteMovie} 
+          toggleFavourite={toggleFavourite}
           user={user}
         />
         </div>

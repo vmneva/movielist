@@ -21,9 +21,9 @@ li {
     font-style: italic;
 }
 .button1 {
-    background-color: #4caf4fbe;
+    background-color: #27de86ad;
     border: none;
-    color: white;
+    color: black;
     padding: 5px 5px;
     text-align: center;
     display: inline-block;
@@ -31,9 +31,9 @@ li {
   }
 
   .button2 {
-    background-color: rgba(255, 0, 0, 0.595);
+    background-color: rgba(244, 112, 112, 0.595);
     border: none;
-    color: white;
+    color: blackwhite;
     padding: 5px 5px;
     text-align: center;
     display: inline-block;
@@ -42,4 +42,5 @@ li {
 .div1 {
     border-style: groove;
     border-width: 1px;
+    background: rgba(239, 149, 206, 0.224);
 }
