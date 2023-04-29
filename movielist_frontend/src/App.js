@@ -37,7 +37,7 @@ const App = () => {
     }
   }, [])
 
-  const movieFormRef = useRef()
+  const movieRef = useRef()
 
   const handleLogin = async (event) => {
     event.preventDefault()
@@ -66,7 +66,6 @@ const App = () => {
       .create(movieObject)
       .then(returnedMovie => {
         setMovies(movies.concat(returnedMovie))
-        movieFormRef.current.toggleVisibility()
       })
       .then(setInfoMessage(`a new blog ${movieObject.title} added`))
       .then(setTimeout(() => {
@@ -132,15 +131,17 @@ const App = () => {
           user = {user}
           handleLogout = {handleLogout}
         />
-        <Togglable buttonLabel="new movie" ref={movieFormRef}>
-          <MovieForm createMovie={addMovie}/>
+        
+        <MovieForm createMovie={addMovie}/>
+        
+        <Togglable buttonLabel="my list" ref={movieRef}>
+          <Movies 
+            movies = {movies} 
+            deleteMovie = {deleteMovie} 
+            toggleFavourite={toggleFavourite}
+            user={user}
+          />
         </Togglable>
-        <Movies 
-          movies = {movies} 
-          deleteMovie = {deleteMovie} 
-          toggleFavourite={toggleFavourite}
-          user={user}
-        />
         </div>
       }
     </div>
