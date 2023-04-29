@@ -1,0 +1,10 @@
+//pyyntö uuden käyttäjän lisäämiseen
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+    "username": "vvuskali",
+    "name": "Venla Uskali",
+    "password": "salainen",
+    "movies": []
+}

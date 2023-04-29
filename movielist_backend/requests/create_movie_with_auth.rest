@@ -1,0 +1,10 @@
+//pyyntö, jonka avulla luodaan uusi blogi käyttäen autentikaatiota eli varmistutaan, että käytetään oikeaa tokenia
+POST http://localhost:3003/api/movies
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZ2dXNrYWxpIiwiaWQiOiI2NDRjZjQ1MTgzNWQxNjhiNmE4NWZhZTYiLCJpYXQiOjE2ODI3NjQ5MDh9.s9J8aSDiNPjqNapOr0FsG6THqGnszl9wdzxCL_Qpipg
+
+{
+    "title": "Harry Potter and the Philosopher's Stone",
+    "director": "Chris Columbus",
+    "userId": "644cf451835d168b6a85fae6"
+}
