@@ -33,11 +33,22 @@ li {
   .button2 {
     background-color: rgba(244, 112, 112, 0.595);
     border: none;
-    color: blackwhite;
+    color: black;
     padding: 5px 5px;
     text-align: center;
     display: inline-block;
     font-size: 10px;
+  }
+  .showbutton {
+    background-color: rgba(255, 107, 248, 0.738);
+    color: white;
+    font-size: 8px;
+  }
+  .closebutton {
+    background-color: rgba(255, 107, 107, 0.738);
+    color: black;
+    font-size: 10px;
+    
   }
 .div1 {
     border-style: groove;

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import '../index.css'
 import Movie from './Movie'
 
 const Movies = ({ movies, addLike, deleteMovie, toggleFavourite, user }) => {
@@ -21,7 +22,7 @@ const Movies = ({ movies, addLike, deleteMovie, toggleFavourite, user }) => {
           deleteMovie={() => deleteMovie(movie.id)}
           toggleFavourite={() => toggleFavourite(movie.id)} />
         )}
-        <button onClick={() => setShowAll(!showAll)}>
+        <button className='showbutton' onClick={() => setShowAll(!showAll)}>
           show {showAll ? 'favourites' : 'all' }
         </button>
       </div>
