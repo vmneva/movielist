@@ -6,10 +6,10 @@ const LogoutForm = ({
     return (
         <div>
         <form onSubmit={handleLogout}>
-            <p>
+            <div className="logout">
             {user.name} logged in
             <button type="submit">logout</button>
-            </p>
+            </div>
         </form>      
         </div> 
     )

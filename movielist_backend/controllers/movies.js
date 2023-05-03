@@ -30,10 +30,12 @@ moviesRouter.post('/', async (request, response) => {
     const user = await User.findById(decodedToken.id)
 
     const movie = new Movie({
-        title: body.title,
-        director: body.director,
-        likes: body.likes,
-        user: user._id
+        name: body.name,
+        year: body.year,
+        type: body.type,
+        actors: body.actors,
+        user: user._id,
+        favourite: body.favourite,
     })
     const savedMovie = await movie.save()
         .then(movie => movie.populate('user', { username: 1, name: 1}))
@@ -50,8 +52,10 @@ moviesRouter.delete('/:id', async (request, response) => {
 moviesRouter.put('/:id', async (request, response) => {
     const body = request.body
     const movie = {
-        title: body.title,
-        director: body.director,
+        name: body.name,
+        year: body.year,
+        type: body.type,
+        actors: body.actors,
         favourite: body.favourite,
     }
   

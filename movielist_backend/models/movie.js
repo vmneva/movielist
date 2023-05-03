@@ -1,8 +1,7 @@
 const mongoose = require('mongoose')
 
 const movieSchema = new mongoose.Schema({
-  //määritellään otsikko pakolliseksi!
-    title: {
+    name: {
       type: String,
       required: true,
     },
@@ -10,7 +9,9 @@ const movieSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
     },
-    director: String,
+    year: String,
+    type: String,
+    actors: String,
     favourite: Boolean,
 })
 

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import './index.css'
 
 import Movies from './components/Movies'
-import MovieForm from './components/MovieForm'
+import IMDbForm from './components/IMDbForm'
 import LoginForm from './components/LoginForm'
 import LogoutForm from './components/LogoutForm'
 import Togglable from './components/Togglable'
@@ -61,18 +61,6 @@ const App = () => {
     }
   }
 
-  const addMovie = (movieObject) => {
-    movieService
-      .create(movieObject)
-      .then(returnedMovie => {
-        setMovies(movies.concat(returnedMovie))
-      })
-      .then(setInfoMessage(`a new blog ${movieObject.title} added`))
-      .then(setTimeout(() => {
-        setInfoMessage(null)
-        }, 3000)
-  )}
-
   const toggleFavourite = id => {
     const movie = movies.find(m => m.id === id)
     const changedMovie = { ...movie, favourite: !movie.favourite }
@@ -82,7 +70,7 @@ const App = () => {
       .then(returnedMovie => {
         setMovies(movies.map(movie => movie.id !== id ? movie : returnedMovie))
       })
-      .then(setInfoMessage(`Favourite status of ${changedMovie.title} changed`))    
+      .then(setInfoMessage(`Favourite status of ${changedMovie.name} changed`))    
       .then(setTimeout(() => {
           setInfoMessage(null)
         }, 2000)
@@ -92,11 +80,11 @@ const App = () => {
   const deleteMovie = id => {
     const deletedMovie = movies.find(m => m.id === id)
 
-    if (window.confirm(`Delete "${deletedMovie.title}"?`)) {
+    if (window.confirm(`Delete "${deletedMovie.name}"?`)) {
       movieService
         .poista(deletedMovie.id)
         .then(setMovies(movies.filter((deletedMovie) => deletedMovie.id !== id)))  
-        .then(setInfoMessage(`${deletedMovie.title} deleted`))
+        .then(setInfoMessage(`${deletedMovie.name} deleted`))
         .then(setTimeout(() => {
             setInfoMessage(null)
             }, 3000)
@@ -125,14 +113,13 @@ const App = () => {
       }
       {user &&
         <div>
-        <h2>Movielist</h2>
+        <h1>Movielist</h1>
         <Notification message={infoMessage} />
         <LogoutForm 
           user = {user}
           handleLogout = {handleLogout}
         />
-        
-        <MovieForm createMovie={addMovie}/>
+        <IMDbForm movies={movies} setMovies={setMovies}/>
         
         <Togglable buttonLabel="my list" ref={movieRef}>
           <Movies 

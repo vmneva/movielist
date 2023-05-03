@@ -16,9 +16,9 @@ const Movie = ({
       if (loggedUsername === movieUser.username) {
         return (
           <div className="div1">
-            {movie.title}
-            <li>directed by {movie.director}</li>
-            <li>likes: {movie.likes}</li>
+            {movie.name}
+            <li>released in {movie.year}</li>
+            <li>{movie.actors}</li>
             <button onClick={toggleFavourite} className="button1">{label}</button>
             <button onClick={deleteMovie} className="button2">delete</button>
           </div>  
