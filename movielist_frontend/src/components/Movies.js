@@ -21,21 +21,18 @@ const Movies = ({ movies, deleteMovie, toggleFavourite, user }) => {
     }
   
     moviesToShow.sort(function(a,b) {
-      return b.likes - a.likes;
+      return b.year - a.year;
     });
 
 
     return (
-      <div>
+      <div >
         <div className="buttons">
-        <button onClick={() => setShowType('all')}>
-          All
-        </button>
-        <button  onClick={() => setShowType('movie')}>
-          Movies
-        </button>
-        <button  onClick={() => setShowType('tvSeries')}>
-          TV Series
+          <button onClick={() => setShowType('all')}>All</button>
+          <button onClick={() => setShowType('movie')}>Movies</button>
+          <button onClick={() => setShowType('tvSeries')}>TV Series</button>
+          <button className='showbutton' onClick={() => setShowAll(!showAll)}>
+          Show {showAll ? 'favourites' : 'all' }
         </button>
         </div>
         {moviesToShow.map(movie => 
@@ -46,9 +43,6 @@ const Movies = ({ movies, deleteMovie, toggleFavourite, user }) => {
           deleteMovie={() => deleteMovie(movie.id)}
           toggleFavourite={() => toggleFavourite(movie.id)} />
         )}
-        <button className='showbutton' onClick={() => setShowAll(!showAll)}>
-          Show {showAll ? 'favourites' : 'all' }
-        </button>
       </div>
     )
   }

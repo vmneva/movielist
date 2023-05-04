@@ -1,4 +1,7 @@
 import '../index.css'
+import { ReactComponent as HeartIcon } from '../icons/heart.svg';
+import { ReactComponent as DeleteIcon } from '../icons/trash.svg';
+
 
 const Movie = ({
       movie, 
@@ -7,21 +10,33 @@ const Movie = ({
       user
     }) => {
 
-      const label = movie.favourite
-      ? 'remove from favourites' : 'add to favourites'
+      const isFavourite = movie.favourite;
+      if (movie.dateAdded === undefined) {
+        movie.dateAdded = new Date()
+      }
 
       const loggedUsername = user.valueOf().username;
       const movieUser = movie.user
 
       if (loggedUsername === movieUser.username) {
         return (
-          <div className="div1">
-            {movie.name}
-            <li>released in {movie.year}</li>
-            <li>{movie.actors}</li>
-            <button onClick={toggleFavourite} className="button1">{label}</button>
-            <button onClick={deleteMovie} className="button2">delete</button>
-          </div>  
+          <div className="movies">
+            {movie.imageUrl && (
+            <img src={movie.imageUrl} alt={`${movie.name} poster`} className="poster" />
+            )}
+        <h3>{movie.name}</h3>
+        <ul>
+          <li>Released in {movie.year}</li>
+          <li>Starring: {movie.actors}</li>
+          <li>Watched in {movie.dateAdded.toLocaleDateString()}</li>
+        </ul>
+        <button onClick={toggleFavourite} className={`favourite ${isFavourite ? 'active' : ''}`}>
+          <HeartIcon />
+        </button>
+        <button onClick={deleteMovie} className="delete">
+          <DeleteIcon />
+        </button>
+      </div>  
           )
       }
 

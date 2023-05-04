@@ -1,7 +1,11 @@
 import { useState } from 'react' 
+import '../index.css'
 import SearchResult from './SearchResult'
+import { ReactComponent as SearchIcon } from '../icons/search.svg';
+import { ReactComponent as CloseIcon } from '../icons/close.svg';
 
-const IMDbForm = ({movies, setMovies}) => {
+
+const IMDbForm = ({movies, setMovies }) => {
   const [title, setMovieSearch] = useState('')
   const [searchResults, setSearchResults] = useState([])
 
@@ -11,14 +15,15 @@ const IMDbForm = ({movies, setMovies}) => {
   const handleCloseSearch = () => {
     setSearchResults([])
   }
+
   const url = 'https://online-movie-database.p.rapidapi.com/auto-complete?q'
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '6e4b04454cmsh064fac70f0e644ep14c27ajsn55675539444d',
-            'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
-        }
-    }
+  const options = {
+      method: 'GET',
+      headers: {
+          'X-RapidAPI-Key': '6e4b04454cmsh064fac70f0e644ep14c27ajsn55675539444d',
+          'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
+      }
+  }
 
   const searchMovie = (event) => {
     event.preventDefault()   
@@ -28,6 +33,7 @@ const IMDbForm = ({movies, setMovies}) => {
             const movielist = data.d;
             const results = movielist
             .filter(movie => movie.qid === 'movie' || movie.qid === 'tvSeries')
+            .filter(movie => movie.i !== undefined)
             .map(movie => ({
                     id: movie.id,
                     name: movie.l,
@@ -36,12 +42,12 @@ const IMDbForm = ({movies, setMovies}) => {
                     actors: movie.s,
                     image: movie.i.imageUrl,
                 }));
-                setSearchResults(results);
+              setSearchResults(results);
             })
   }
     
     return (
-      <div>
+      <div className='movie-card'>
         <h2>Search movie from IMDb:</h2>
         <form onSubmit={searchMovie}>
             name:
@@ -49,11 +55,12 @@ const IMDbForm = ({movies, setMovies}) => {
               value={title}
               onChange={handleMovieSearch}
             />
-        <br></br>
-        <button type="submit">search</button>
+        <button type="submit" className='searchbutton'>
+          <SearchIcon />
+        </button>
         {searchResults.length > 0 && 
           <button type="button" onClick={handleCloseSearch}>
-            close
+            <CloseIcon />
           </button>
         }
         </form>

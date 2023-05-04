@@ -7,7 +7,6 @@ import LoginForm from './components/LoginForm'
 import LogoutForm from './components/LogoutForm'
 import Togglable from './components/Togglable'
 import Notification from './components/Notification'
-import ErrorNotification from './components/ErrorNotification'
 
 import movieService from './services/movies'
 import loginService from './services/login'
@@ -41,6 +40,7 @@ const App = () => {
   }, [])
 
   const movieRef = useRef()
+  const userRef = useRef()
 
   const handleLogin = async (event) => {
     event.preventDefault()
@@ -105,14 +105,17 @@ const App = () => {
     <div>
       {!user &&
       <div className='frontpage'>
-        <ErrorNotification message={errorMessage} />
-        <Notification message={infoMessage} />
-        <SignInForm 
-          users = {users} 
-          setUsers = {setUsers}
-          setErrorMessage = {setErrorMessage}
-          setInfoMessage = {setInfoMessage}
-        />
+        <h2>Welcome to your personal movielist!</h2>
+        <form action="#">
+			  <h1>Create Account</h1>
+          <SignInForm 
+            users = {users} 
+            setUsers = {setUsers}
+            errorMessage = {errorMessage} setErrorMessage = {setErrorMessage}
+            infoMessage = {infoMessage} setInfoMessage = {setInfoMessage}
+          />
+			
+		</form>
 
         <LoginForm 
           username = {username} 
@@ -122,8 +125,16 @@ const App = () => {
           handleUsernameChange={({ target }) => setUsername(target.value)}
           handlePasswordChange={({ target }) => setPassword(target.value)}
           handleSubmit={handleLogin}
+          errorMessage = {errorMessage} setErrorMessage = {setErrorMessage}
         />
-	      </div>
+          <SignInForm 
+            users = {users} 
+            setUsers = {setUsers}
+            errorMessage = {errorMessage} setErrorMessage = {setErrorMessage}
+            infoMessage = {infoMessage} setInfoMessage = {setInfoMessage}
+          />
+        
+        </div>
       }
       {user &&
         <div>

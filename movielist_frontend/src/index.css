@@ -1,100 +1,187 @@
+.frontpage p {
+  display:flex;
+  display:flex;
+}
+.login {
+   height:250px;
+   max-width:250px;
+   margin:40px auto;
+   border-radius:2px;
+   box-shadow:0px 2px 3px rgba(0, 0, 0, 0.2);
+   display:flex;
+   flex-direction:column;
+   overflow:hidden;
+   animation: hi 0.5s;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   background:#dcfbce;
+   border-style: dotted;
+   border-color: white;
+   padding: 12px 45px;
+}
+
+.signin {
+  min-height:300px;
+  max-width:250px;
+  margin:40px auto;
+  border-radius:2px;
+  box-shadow:0px 2px 3px rgba(0, 0, 0, 0.2);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background:#d7f8f8;
+  padding: 12px 45px;
+  border-style: dotted;
+  border-color: white;
+   
+}
+
+.login button {
+	border-radius: 20px;
+	border: 1px solid #2ae96d;
+	background-color: #2ae96d;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+.login input {
+	background-color: #e6f5e0;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0px;
+	width: 100%;
+}
+
+.signin button {
+	border-radius: 20px;
+	border: 1px solid #30e8eb;
+	background-color: #30e8eb;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+.signin input {
+    background-color: #ecfcfc;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+}
+
+.IMDb {
+  width: 50%;
+  border-style: groove;
+  border-width: 1px;
+}
+
+
 .info {
-    color: green;
-    background: lightgrey;
-    font-size: 15px;
-    border-style: solid;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #b0edbd;
+  color: #00cc33;
+  border: 1px solid #00cc33;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
 }
 .error {
-    color: rgba(255, 0, 0, 0.544);
-    background: lightgrey;
-    font-size: 15px;
-    border-style: solid;
-    border-radius: 5px;
+    display: block;
+    margin: 10px 0;
     padding: 10px;
-    margin-bottom: 10px;
+    background-color: #ffe6e6;
+    color: #cc0000;
+    border: 1px solid #cc0000;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
   }
 
-li {
-    color: gray;
-    font-style: italic;
-}
 img {
   max-width: 200px;
   background: rgba(137, 246, 200, 0.224);
 }
+
 .movies {
   width: 50%;
-  flex: 2;
-  flex-wrap: nowrap;
-  display: block;
-  flex-direction: center;
-  list-style: none;
-  margin: 10px;
-  padding: 15px;
-  border-radius: 12px;
-  text-align: center;
   border-style: groove;
   border-width: 1px;
-}
-.movies h2 {
-  border-style: groove;
-  border-width: 1px;
-  background: rgba(137, 246, 200, 0.224);
+  background: rgba(237, 228, 234, 0.224);
+  font-size: 20px;
+  width: 50%;
 }
 .movies li {
-  background: rgba(137, 246, 200, 0.224);
-  color: black;
-  font-style: italic;
-}
-.movies button {
-  color: white;
-  background: #27de86ad;
-  border-radius: 10px;
-  font-size: 12px;
-}
-
-.button1 {
-    background-color: #27de86ad;
-    border: none;
-    color: black;
-    padding: 5px 5px;
-    text-align: center;
-    display: inline-block;
-    font-size: 10px;
-  }
-
-  .button2 {
-    background-color: rgba(244, 112, 112, 0.595);
-    border: none;
-    color: black;
-    padding: 5px 5px;
-    text-align: center;
-    display: inline-block;
-    font-size: 10px;
-  }
-  .showbutton {
-    background-color: rgba(255, 107, 248, 0.738);
-    color: white;
-    font-size: 8px;
-  }
-  .closebutton {
-    background-color: rgba(255, 107, 107, 0.738);
-    color: black;
-    font-size: 10px;
-    
-  }
-.div1 {
-    width: 50%;
-    border-style: groove;
-    border-width: 1px;
-    background: rgba(237, 228, 234, 0.224);
-    font-size: 20px;
-    font-weight: bold;
-}
-.div1 li {
   font-size: 15px;
   font-weight: normal;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.movies h3 {
+  font-weight: normal;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.buttons {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.showbutton {
+  background-color: rgba(255, 250, 107, 0.738);
+  color: black;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+.closebutton {
+  color: rgba(255, 107, 107, 0.738);
+  font-size: 30px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.searchbutton {
+  cursor: pointer;
+}
+.searchbutton svg {
+  size: 12px;
+}
+.favourite {
+  border: none;
+  background-color: none;
+  cursor: pointer;
+}
+.favourite svg {
+  fill: #ccc;
+  width: 25px;
+  height: 20px;
+  margin-right: auto;
+  border: none;
+}
+
+.favourite.active svg {
+  fill: red;
+  border: none;
+  width: 25px;
+  height: 20px;
+}
+.delete {
+  border: none;
+  cursor: pointer;
+}
+.delete svg {
+  color: black;
+  background-color: none;
+  width: 25px;
+  height: 20px;
 }

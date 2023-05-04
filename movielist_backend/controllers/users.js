@@ -5,7 +5,7 @@ const User = require('../models/user')
 usersRouter.get('/', async (request, response) => {
     //käytetään populatea ja määritellään näkyviksi blogista otsikko, url sekä kirjoittaja
     const users = await User
-        .find({}).populate('movies', { title: 1, director: 1} )
+        .find({}).populate('movies', { name: 1, type: 1} )
     response.json(users)
   })
 
@@ -20,7 +20,6 @@ usersRouter.post('/', async (request, response) => {
   }
 
   const saltRounds = 10
-  //käytetään merkkijonosalasanan sijaan hashiä
   const passwordHash = await bcrypt.hash(password, saltRounds)
 
   const user = new User({
@@ -29,7 +28,7 @@ usersRouter.post('/', async (request, response) => {
     passwordHash,
   })
 
-  const savedUser = await user.save()
+  const savedUser = await user.save().then(user => user.populate('movies', { name: 1, type: 1} ))
   response.status(201).json(savedUser)
 })
 

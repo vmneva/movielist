@@ -1,36 +1,34 @@
-import ErrorNotification from './ErrorNotification'
-
 const LoginForm = ({
     handleLogin,
     handleUsernameChange,
     handlePasswordChange,
     username,
     password,
-    errorMessage,
 }) => {
 
   return (
-      <div>
-        <h2>Log in to your movielist</h2>
-        <ErrorNotification message={errorMessage} />
+      <div className='login'>
+        <h2>Log in</h2>
         <form onSubmit={handleLogin}>
           <div>
-            username
             <input
               type="text"
               value={username}
               onChange={handleUsernameChange}
+              placeholder='username'
             />
           </div>
           <div>
-            password
             <input
               type="password"
               value={password}
               onChange={handlePasswordChange}
+              placeholder='password'
             />
-          </div>
+            <br></br>
+            <br></br>
             <button type="submit">login</button>
+          </div>
           </form>      
       </div>
     )

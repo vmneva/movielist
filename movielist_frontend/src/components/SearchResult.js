@@ -15,7 +15,8 @@ const SearchResult = ({
             type: movie.type,
             actors: movie.actors,
             image: movie.image,
-            favourite: Math.random() > 0.5
+            favourite: Math.random() > 0.5,
+            dateAdded: new Date()
         })
     }
     const createMovie = (movieObject) => {
@@ -27,7 +28,7 @@ const SearchResult = ({
     }
     if (movie.type === "movie") {
         return (
-            <div className='movies'>
+            <div className='IMDb'>
             <h2>{movie.name}</h2>
                 <img src={movie.image}/>
                 <li>Movie - {movie.year}</li>
@@ -38,7 +39,7 @@ const SearchResult = ({
     }
     else {
         return (
-            <div className='movies'>
+            <div className='IMDb'>
             <h2>{movie.name}</h2>
                 <img src={movie.image}/>
                 <li>TV Series - {movie.year}</li>

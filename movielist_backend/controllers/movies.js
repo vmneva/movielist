@@ -3,7 +3,6 @@ const Movie = require('../models/movie')
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 
-//asyncia käyttävät metodit:
 moviesRouter.get('/', async (request, response) => {
     const movies = await Movie
         .find({}).populate('user', { username: 1, name: 1} )
@@ -18,7 +17,6 @@ const getTokenFrom = request => {
     return null
   }
 
-//blogin lisäys token-autentikoinnin avulla:
 moviesRouter.post('/', async (request, response) => {
     const body = request.body
     //mikäli token on väärä tai sitä ei ole, tulostetaan viesti

@@ -1,4 +1,5 @@
 import { useState, useImperativeHandle, forwardRef } from 'react'
+import { ReactComponent as CloseIcon } from '../icons/close.svg';
 import '../index.css'
 
 const Togglable = forwardRef((props, ref) => {
@@ -24,7 +25,9 @@ const Togglable = forwardRef((props, ref) => {
       </div>
       <div style={showWhenVisible}>
         {props.children}
-        <button className="closebutton" onClick={toggleVisibility}>close</button>
+        <button className="closebutton" onClick={toggleVisibility}>
+          <CloseIcon />
+        </button>
       </div>
     </div>
   )
