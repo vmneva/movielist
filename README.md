@@ -2,11 +2,10 @@
 
 Project for course DTEK2074. 
 
-Creating fullstack website for personal movie list. Database from MongoDB. 
+Creating fullstack website for personal movie list. Database from MongoDB and RapidAI. 
 User can
-- add movies to the journal 
+- search movies from IMDb and add them to the journal
 - toggle the favourite status of the movie
 - delete movies
-- get basic information from IMDB for the movies
-- define if the movie is already watched or not
-- filter the movies by genre and year
+- filter the movies by type (movie/TV series) and favourite status
+- movies are sorted from newest to oldest
