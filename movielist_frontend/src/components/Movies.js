@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import '../index.css'
 import Movie from './Movie'
+import { ReactComponent as HeartIcon } from '../icons/heart.svg';
 
 const Movies = ({ movies, deleteMovie, toggleFavourite, user }) => {
     movies.sort(function(a,b) {
@@ -28,12 +29,12 @@ const Movies = ({ movies, deleteMovie, toggleFavourite, user }) => {
     return (
       <div >
         <div className="buttons">
-          <button onClick={() => setShowType('all')}>All</button>
-          <button onClick={() => setShowType('movie')}>Movies</button>
-          <button onClick={() => setShowType('tvSeries')}>TV Series</button>
-          <button className='showbutton' onClick={() => setShowAll(!showAll)}>
-          Show {showAll ? 'favourites' : 'all' }
-        </button>
+          <button className="normalbutton" onClick={() => setShowType('all')}>All</button>
+          <button className="normalbutton" onClick={() => setShowType('movie')}>Movies</button>
+          <button className="normalbutton" onClick={() => setShowType('tvSeries')}>TV Series</button>
+          <button onClick={() => setShowAll(!showAll)} className={`favourite ${!showAll ? 'active' : ''}`}>
+          <HeartIcon />
+          </button>
         </div>
         {moviesToShow.map(movie => 
         <Movie 

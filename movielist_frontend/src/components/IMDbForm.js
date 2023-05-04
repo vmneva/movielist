@@ -14,6 +14,7 @@ const IMDbForm = ({movies, setMovies }) => {
   }
   const handleCloseSearch = () => {
     setSearchResults([])
+    setMovieSearch('')
   }
 
   const url = 'https://online-movie-database.p.rapidapi.com/auto-complete?q'
@@ -47,24 +48,24 @@ const IMDbForm = ({movies, setMovies }) => {
   }
     
     return (
-      <div className='movie-card'>
-        <h2>Search movie from IMDb:</h2>
+      <div >
+        <h2 className='searchForm'>Search movie from IMDb:</h2>
         <form onSubmit={searchMovie}>
-            name:
               <input
               value={title}
               onChange={handleMovieSearch}
+              placeholder='name of the movie...'
             />
         <button type="submit" className='searchbutton'>
           <SearchIcon />
         </button>
         {searchResults.length > 0 && 
-          <button type="button" onClick={handleCloseSearch}>
+          <button className='closeSearch' type="button" onClick={handleCloseSearch}>
             <CloseIcon />
           </button>
         }
         </form>
-        <ul>
+        <ul className='IMDb'>
         {searchResults.map(result => (
           <SearchResult
                 key={result.id}

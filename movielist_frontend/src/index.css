@@ -1,6 +1,15 @@
-.frontpage p {
-  display:flex;
-  display:flex;
+h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color:rgba(191, 107, 255, 0.738);
+  font-size: 50px;
+}
+.searchForm {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 1px;
+  color:rgba(191, 107, 255, 0.738);
+  font-size: 20px;
 }
 .login {
    height:250px;
@@ -57,6 +66,14 @@
 	width: 100%;
 }
 
+.signup input {
+	background-color: #e0f4f5;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0px;
+	width: 100%;
+}
+
 .signup button {
 	border-radius: 20px;
 	border: 1px solid #30e8eb;
@@ -69,20 +86,67 @@
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
 }
-.signup input {
-    background-color: #ecfcfc;
-    border: none;
-    padding: 12px 15px;
-    margin: 8px 0;
-    width: 100%;
+.results {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .IMDb {
-  width: 50%;
-  border-style: groove;
-  border-width: 1px;
+  list-style-type: none;
+  padding: 20px;
+  background: rgba(189, 128, 246, 0.196);
+}
+.searchresult {
+  color: white;
+  padding: 10px;
+  background: rgba(16, 18, 0, 0.29);
+  margin: 10px;
+  letter-spacing: 2px; 
+}
+.searchresult button {
+  border-radius: 20px;
+	border: 1px solid #2ae96d;
+	background-color: #2ae96d;
+	color: #FFFFFF;
+	font-size: 10px;
+	font-weight: bold;
+	padding: 12px 25px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+  
+}
+.IMDb {
+  display: flex;
+  flex-wrap: wrap;
+}
+.searchresult {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: calc(33.33% - 20px);
+}
+img {
+  max-width: 300px;
 }
 
+.logout {
+  position: absolute;
+  top: 1%;
+  right: 2%;
+  width: auto;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.logoutbutton {
+  position: absolute;
+  right: 0%;
+  border: none;
+  cursor: pointer;
+  size: 100px;
+  background-color: white;
+  color: red;
+  font-size: 30px;
+}
 
 .info {
   display: block;
@@ -97,30 +161,24 @@
   text-align: center;
 }
 .error {
-    display: block;
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #ffe6e6;
-    color: #cc0000;
-    border: 1px solid #cc0000;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #ffe6e6;
+  color: #cc0000;
+  border: 1px solid #cc0000;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
   }
 
-img {
-  max-width: 200px;
-  background: rgba(137, 246, 200, 0.224);
-}
-
 .movies {
-  width: 50%;
+  width: 100%;
   border-style: groove;
   border-width: 1px;
   background: rgba(237, 228, 234, 0.224);
   font-size: 20px;
-  width: 50%;
 }
 .movies li {
   font-size: 15px;
@@ -132,16 +190,11 @@ img {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.buttons {
+.buttons normalbutton {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-.showbutton {
-  background-color: rgba(255, 250, 107, 0.738);
-  color: black;
-  font-size: 15px;
-  border: none;
+  background-color: #db7ef7ae;
   cursor: pointer;
+  border-radius: 10px;
 }
 .closebutton {
   color: rgba(255, 107, 107, 0.738);
@@ -154,12 +207,13 @@ img {
   cursor: pointer;
 }
 .searchbutton svg {
-  size: 12px;
+  size: 15px;
 }
 .favourite {
   border: none;
   background-color: none;
   cursor: pointer;
+  background-color: white;
 }
 .favourite svg {
   fill: #ccc;
@@ -178,6 +232,7 @@ img {
 .delete {
   border: none;
   cursor: pointer;
+  background-color: white;
 }
 .delete svg {
   color: black;
@@ -185,3 +240,19 @@ img {
   width: 25px;
   height: 20px;
 }
+.closeSearch svg {
+  font-size: 14px;
+}
+.listbutton {
+  border-radius: 20px;
+	border: 1px solid #a731ec56;
+	background-color: #a731ec56;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 10px 20px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+

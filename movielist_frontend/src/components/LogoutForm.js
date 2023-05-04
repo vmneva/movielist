@@ -1,14 +1,21 @@
+import '../index.css'
+import { ReactComponent as LogoutIcon } from '../icons/logout.svg';
+
+
 const LogoutForm = ({
     handleLogout,
     user,
 
 }) => {
     return (
-        <div>
+        <div className="logout">
         <form onSubmit={handleLogout}>
-            <div className="logout">
+            <div>
             {user.name} logged in
-            <button type="submit">logout</button>
+            <br></br>
+            <button className="logoutbutton" type="submit">
+            <LogoutIcon/>
+            </button>
             </div>
         </form>      
         </div> 

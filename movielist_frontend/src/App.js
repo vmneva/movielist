@@ -104,7 +104,7 @@ const App = () => {
   return (
     <div>
       {!user &&
-      <div className='frontpage'>
+      <div>
         <ErrorNotification message={errorMessage} />
         <Notification message={infoMessage} />
         <SignUpForm 
@@ -133,7 +133,7 @@ const App = () => {
           user = {user}
           handleLogout = {handleLogout}
         />
-        <IMDbForm 
+        <IMDbForm className="results"
           movies={movies} setMovies={setMovies}
         />
         
