@@ -11,7 +11,7 @@ import ErrorNotification from './components/ErrorNotification'
 
 import movieService from './services/movies'
 import loginService from './services/login'
-import SignInForm from './components/SignInForm'
+import SignUpForm from './components/SignUpForm'
 
 const App = () => {
   const [movies, setMovies] = useState([])
@@ -107,7 +107,7 @@ const App = () => {
       <div className='frontpage'>
         <ErrorNotification message={errorMessage} />
         <Notification message={infoMessage} />
-        <SignInForm 
+        <SignUpForm 
           users = {users} 
           setUsers = {setUsers}
           setErrorMessage = {setErrorMessage}

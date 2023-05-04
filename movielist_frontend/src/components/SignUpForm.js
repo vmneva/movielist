@@ -1,7 +1,7 @@
 import { useState } from 'react' 
 import userService from '../services/users'
 
-const SignInForm = ({
+const SignUpForm = ({
     users,
     setUsers,
     setInfoMessage,
@@ -46,7 +46,7 @@ const SignInForm = ({
     }
 
   return (
-      <div className='signin'>
+      <div className='signup'>
         <h2>Create account</h2>
         <form>
           <div>
@@ -81,4 +81,4 @@ const SignInForm = ({
       </div>
     )
 }
-export default SignInForm
+export default SignUpForm
