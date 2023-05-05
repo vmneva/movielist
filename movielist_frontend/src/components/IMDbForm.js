@@ -42,6 +42,7 @@ const IMDbForm = ({movies, setMovies }) => {
                     type: movie.qid,
                     actors: movie.s,
                     image: movie.i.imageUrl,
+                    dateAdded: new Date()
                 }));
               setSearchResults(results);
             })
@@ -65,6 +66,7 @@ const IMDbForm = ({movies, setMovies }) => {
           </button>
         }
         </form>
+        <br></br>
         <ul className='IMDb'>
         {searchResults.map(result => (
           <SearchResult

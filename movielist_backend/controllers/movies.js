@@ -34,6 +34,8 @@ moviesRouter.post('/', async (request, response) => {
         actors: body.actors,
         user: user._id,
         favourite: body.favourite,
+        dateAdded: body.dateAdded,
+        image: body.image
     })
     const savedMovie = await movie.save()
         .then(movie => movie.populate('user', { username: 1, name: 1}))
@@ -55,6 +57,8 @@ moviesRouter.put('/:id', async (request, response) => {
         type: body.type,
         actors: body.actors,
         favourite: body.favourite,
+        dateAdded: body.dateAdded,
+        image: body.image,
     }
   
     const updatedMovie = await Movie.findByIdAndUpdate(request.params.id, movie, { new: true }).populate('user', { username: 1, name: 1})

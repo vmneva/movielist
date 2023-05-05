@@ -16,7 +16,6 @@ const Movies = ({ movies, deleteMovie, toggleFavourite, user }) => {
     if (!showAll) {
       moviesToShow = moviesToShow.filter(movie => movie.favourite);
     }
-  
     if (showType !== 'all') {
       moviesToShow = moviesToShow.filter(movie => movie.type === showType);
     }
@@ -24,7 +23,6 @@ const Movies = ({ movies, deleteMovie, toggleFavourite, user }) => {
     moviesToShow.sort(function(a,b) {
       return b.year - a.year;
     });
-
 
     return (
       <div >

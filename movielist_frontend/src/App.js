@@ -73,11 +73,6 @@ const App = () => {
       .then(returnedMovie => {
         setMovies(movies.map(movie => movie.id !== id ? movie : returnedMovie))
       })
-      .then(setInfoMessage(`Favourite status of ${changedMovie.name} changed`))    
-      .then(setTimeout(() => {
-          setInfoMessage(null)
-        }, 2000)
-      )
   }
 
   const deleteMovie = id => {
@@ -136,7 +131,7 @@ const App = () => {
         <IMDbForm className="results"
           movies={movies} setMovies={setMovies}
         />
-        
+        <br></br>
         <Togglable buttonLabel="my list" ref={movieRef}>
           <Movies 
             movies = {movies} 

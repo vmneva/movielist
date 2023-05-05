@@ -13,7 +13,8 @@ const movieSchema = new mongoose.Schema({
     type: String,
     actors: String,
     favourite: Boolean,
-    dateAdded: Date
+    image: String,
+    dateAdded: String,
 })
 
 movieSchema.set('toJSON', {

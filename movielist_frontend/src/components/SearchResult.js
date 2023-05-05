@@ -13,15 +13,15 @@ const SearchResult = ({
 
     const addMovie = (event) => {
         event.preventDefault()
-        if (movie.id)
+        var today = new Date();
         createMovie({
             name: movie.name,
             year: movie.year,
             type: movie.type,
             actors: movie.actors,
             image: movie.image,
-            favourite: Math.random() > 0.5,
-            dateAdded: new Date()
+            favourite: false,
+            dateAdded: (today.getDate()  + "/" + (today.getMonth()+1) + "/" + today.getFullYear()),
         })
         setIsAdded(true);
     }
@@ -38,7 +38,7 @@ const SearchResult = ({
                 <img src={movie.image} alt={movie.name}/>
                 <h2>{movie.name}</h2>
                 <li>Movie - {movie.year}</li>
-                <li>{movie.actors}{' '}
+                <li>{movie.actors}<br></br>
                     {isAdded ? (<button className='check-icon'> <CheckIcon /></button>) 
                         : (<button onClick={addMovie}>add to your list</button>)}
                 </li>
@@ -51,7 +51,7 @@ const SearchResult = ({
                 <img src={movie.image} alt={movie.name}/>
                 <h2>{movie.name}</h2>
                 <li>TV Series - {movie.year}</li>
-                <li>{movie.actors}{' '}
+                <li>{movie.actors}<br></br>
                     {isAdded ? (<button className='check-icon'> <CheckIcon /></button>) 
                         : (<button onClick={addMovie}>add to your list</button>)}
                 </li>

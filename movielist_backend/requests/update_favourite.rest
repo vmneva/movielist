@@ -1,7 +1,7 @@
 //pyyntö päivittää tykkäysten määrä id:n perusteella
-PUT http://localhost:3003/api/movies/644cf4bc835d168b6a85faec
+PUT http://localhost:3003/api/movies/6455293523e7efbc6e707ed3
 Content-Type: application/json
 
 {
-    "favourite": false
+    "dateAdded": "10/3/2023"
 }

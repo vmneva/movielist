@@ -9,11 +9,7 @@ const Movie = ({
       toggleFavourite,
       user
     }) => {
-
       const isFavourite = movie.favourite;
-      if (movie.dateAdded === undefined) {
-        movie.dateAdded = new Date()
-      }
 
       const loggedUsername = user.valueOf().username;
       const movieUser = movie.user
@@ -28,9 +24,9 @@ const Movie = ({
         <ul>
           <li>Released in {movie.year}</li>
           <li>Starring: {movie.actors}</li>
-          <li>Watched in {movie.dateAdded.toLocaleDateString()}</li>
+          <li>Watched in {movie.dateAdded}</li>
         </ul>
-        <button onClick={toggleFavourite} className={`favourite ${isFavourite ? 'active' : ''}`}>
+        <button aria-label='favourite' onClick={toggleFavourite} className={`favourite ${isFavourite ? 'active' : ''}`}>
           <HeartIcon />
         </button>
         <button onClick={deleteMovie} className="delete">
