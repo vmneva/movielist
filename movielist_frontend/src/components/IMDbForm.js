@@ -4,7 +4,6 @@ import SearchResult from './SearchResult'
 import { ReactComponent as SearchIcon } from '../icons/search.svg';
 import { ReactComponent as CloseIcon } from '../icons/close.svg';
 
-
 const IMDbForm = ({movies, setMovies }) => {
   const [title, setMovieSearch] = useState('')
   const [searchResults, setSearchResults] = useState([])
@@ -49,33 +48,33 @@ const IMDbForm = ({movies, setMovies }) => {
   }
     
     return (
-      <div >
+      <div>
         <h2 className='searchForm'>Search movie from IMDb:</h2>
         <form onSubmit={searchMovie}>
-              <input
-              value={title}
-              onChange={handleMovieSearch}
-              placeholder='name of the movie...'
-            />
-        <button type="submit" className='searchbutton'>
+          <input
+            value={title}
+            onChange={handleMovieSearch}
+            placeholder='name of the movie...'
+          />
+          <button type="submit" className='searchbutton'>
           <SearchIcon />
-        </button>
-        {searchResults.length > 0 && 
-          <button className='closeSearch' type="button" onClick={handleCloseSearch}>
-            <CloseIcon />
           </button>
-        }
+          {searchResults.length > 0 && 
+            <button className='closeSearch' type="button" onClick={handleCloseSearch}>
+              <CloseIcon />
+            </button>
+          }
         </form>
         <br></br>
         <ul className='IMDb'>
-        {searchResults.map(result => (
-          <SearchResult
+          {searchResults.map(result => (
+            <SearchResult
                 key={result.id}
                 movie={result} 
                 movies={movies}
                 setMovies = {setMovies}
                 />
-        ))}
+          ))}
         </ul>
       </div>
     )

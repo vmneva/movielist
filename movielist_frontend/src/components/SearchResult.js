@@ -32,6 +32,7 @@ const SearchResult = ({
                 setMovies(movies.concat(returnedMovie))
               }) 
     }
+    
     if (movie.type === "movie") {
         return (
             <div className='searchresult'>
@@ -40,8 +41,7 @@ const SearchResult = ({
                 <li>Movie - {movie.year}</li>
                 <li>{movie.actors}</li>
                 <br></br>
-                {isAdded ? (<button className='check-icon'> <CheckIcon /></button>) 
-                        : (<button onClick={addMovie}>add to your list</button>)}
+                {isAdded ? (<button className='check-icon'> <CheckIcon /></button>) : (<button onClick={addMovie}>add to your list</button>)}
             </div>  
         )
     }
@@ -53,12 +53,9 @@ const SearchResult = ({
                 <li>TV Series - {movie.year}</li>
                 <li>{movie.actors}</li>
                 <br></br>
-                {isAdded ? (<button className='check-icon'> <CheckIcon /></button>) 
-                        : (<button onClick={addMovie}>add to your list</button>)}
+                {isAdded ? (<button className='check-icon'> <CheckIcon /></button>) : (<button onClick={addMovie}>add to your list</button>)}
             </div> 
         )
     }
-
 }
-
 export default SearchResult

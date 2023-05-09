@@ -44,11 +44,8 @@ const App = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault()
-    
     try {
-      const user = await loginService.login({
-        username, password,
-      })
+      const user = await loginService.login({username, password,})
       window.localStorage.setItem(
         'loggedMovieappUser', JSON.stringify(user)
       )
@@ -64,10 +61,15 @@ const App = () => {
     }
   }
 
+  const handleLogout = async () => {
+    window.localStorage.clear()
+    setUsername('')
+    setPassword('')
+  }
+
   const toggleFavourite = id => {
     const movie = movies.find(m => m.id === id)
     const changedMovie = { ...movie, favourite: !movie.favourite }
-
     movieService
       .update(id, changedMovie)
       .then(returnedMovie => {
@@ -77,7 +79,6 @@ const App = () => {
 
   const deleteMovie = id => {
     const deletedMovie = movies.find(m => m.id === id)
-
     if (window.confirm(`Delete "${deletedMovie.name}"?`)) {
       movieService
         .poista(deletedMovie.id)
@@ -90,12 +91,6 @@ const App = () => {
     }
   }
 
-  const handleLogout = async () => {
-    window.localStorage.clear()
-    setUsername('')
-    setPassword('')
-  }
-
   return (
     <div>
       {!user &&
@@ -103,20 +98,14 @@ const App = () => {
         <ErrorNotification message={errorMessage} />
         <Notification message={infoMessage} />
         <SignUpForm 
-          users = {users} 
-          setUsers = {setUsers}
-          setErrorMessage = {setErrorMessage}
-          setInfoMessage = {setInfoMessage}
+          users = {users} setUsers = {setUsers}
+          setErrorMessage = {setErrorMessage} setInfoMessage = {setInfoMessage}
         />
-
         <LoginForm 
-          username = {username} 
-          password = {password}
-          users={users}
+          username = {username} password = {password} users={users}
           handleLogin = {handleLogin}
           handleUsernameChange={({ target }) => setUsername(target.value)}
           handlePasswordChange={({ target }) => setPassword(target.value)}
-          handleSubmit={handleLogin}
         />
 	      </div>
       }
@@ -125,8 +114,7 @@ const App = () => {
         <h1>Movielist</h1>
         <Notification message={infoMessage} />
         <LogoutForm 
-          user = {user}
-          handleLogout = {handleLogout}
+          user = {user} handleLogout = {handleLogout}
         />
         <IMDbForm className="results"
           movies={movies} setMovies={setMovies}

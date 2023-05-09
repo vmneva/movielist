@@ -7,10 +7,8 @@ const Movies = ({ movies, deleteMovie, toggleFavourite, user }) => {
     movies.sort(function(a,b) {
         return b.year - a.year
     });
-    
     const [showAll, setShowAll] = useState(true)
     const [showType, setShowType] = useState('all');
-
     let moviesToShow = [...movies];
    
     if (!showAll) {
@@ -31,7 +29,7 @@ const Movies = ({ movies, deleteMovie, toggleFavourite, user }) => {
           <button className="normalbutton" onClick={() => setShowType('movie')}>Movies</button>
           <button className="normalbutton" onClick={() => setShowType('tvSeries')}>TV Series</button>
           <button onClick={() => setShowAll(!showAll)} className={`favourite ${!showAll ? 'active' : ''}`}>
-          <HeartIcon />
+            <HeartIcon />
           </button>
         </div>
         {moviesToShow.map(movie => 
