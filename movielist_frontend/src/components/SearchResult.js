@@ -38,10 +38,10 @@ const SearchResult = ({
                 <img src={movie.image} alt={movie.name}/>
                 <h2>{movie.name}</h2>
                 <li>Movie - {movie.year}</li>
-                <li>{movie.actors}<br></br>
-                    {isAdded ? (<button className='check-icon'> <CheckIcon /></button>) 
+                <li>{movie.actors}</li>
+                <br></br>
+                {isAdded ? (<button className='check-icon'> <CheckIcon /></button>) 
                         : (<button onClick={addMovie}>add to your list</button>)}
-                </li>
             </div>  
         )
     }
@@ -51,10 +51,10 @@ const SearchResult = ({
                 <img src={movie.image} alt={movie.name}/>
                 <h2>{movie.name}</h2>
                 <li>TV Series - {movie.year}</li>
-                <li>{movie.actors}<br></br>
-                    {isAdded ? (<button className='check-icon'> <CheckIcon /></button>) 
+                <li>{movie.actors}</li>
+                <br></br>
+                {isAdded ? (<button className='check-icon'> <CheckIcon /></button>) 
                         : (<button onClick={addMovie}>add to your list</button>)}
-                </li>
             </div> 
         )
     }

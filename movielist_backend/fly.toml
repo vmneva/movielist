@@ -1,6 +1,6 @@
-# fly.toml file generated for movielist on 2023-05-04T20:53:33+03:00
+# fly.toml file generated for nameless-snowflake-9613 on 2023-05-05T21:09:44+03:00
 
-app = "movielist"
+app = "nameless-snowflake-9613"
 kill_signal = "SIGINT"
 kill_timeout = 5
 primary_region = "arn"
